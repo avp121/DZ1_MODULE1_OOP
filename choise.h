@@ -1,36 +1,46 @@
-typedef class
+typedef class									/// Voter
 {
- char *Surname;
- char *Name;
- char *FatherName;
- int Age;
- bool HomeVoting;
- Voter *Next;
+ char *Surname;									/// Surname
+ char *Name;									/// Name
+ char *FatherName;								/// Second name
+ int Age;										/// Age
+ bool HomeVoting;								/// Voting status: at home/not at home
+ Voter();										/// Constructor
+ Voter (char *, char *, char *, int, bool);		/// Add name, age and status
+ void ChangeName (char *, char *, char *);		/// Add name
+ void ChangeAge (int);							/// Add age
+ void ChangeVotingStatus (bool);				/// Add status
 } Voter;
 
-typedef class
+typedef class									/// Flat
 {
- int Number;
- int NumOfVoters;
- Voter *VotersList;
- Flat *Next;
+ int Number;									/// Flat number
+ int NumOfVoters;								/// Number of voters in flat
+ Voter *VotersList;								/// List of voters
+ Flat *pNext;									/// Next flat pointer
+ Flat ();										///
+ Flat (int, int, Voter *, Flat *);				///
+ void ChangeNum (int);							///
+ void ChangeNumOfVoters (int);					///
+ void AddNext (Flat *);							///
 }Flat;
 
-class Home
+class Home										/// House
 {
- int Number;
- int Structure;
- int NumOfStages;
- int NumOfFlats;
- Flat *FlatesList;
- Home *Next;
+ int Number;									/// Number of house
+ char Structure;								/// Structure of house
+ int NumOfStages;								/// Number of stages
+ int NumOfFlats;								/// Number of flats
+ Flat *FlatesList;								/// List of flats
+ Home *pNext;									/// Next house pointer
+
 };
 
-class street
+class Street									/// Street
 {
- char *Name;
- int Type;
- int NumOfHouses;
- Home *HouseList;
- street *Next;
+ char *Name;									/// Name of street
+ int Type;										/// Type of street
+ int NumOfHouses;								/// Number of houses
+ Home *HouseList;								/// List of houses
+ Street *pNext;									/// Next street pointer
 };
