@@ -18,11 +18,11 @@ typedef class									/// Flat
  int NumOfVoters;								/// Number of voters in flat
  Voter *VotersList;								/// List of voters
  Flat *pNext;									/// Next flat pointer
- Flat ();										///
- Flat (int, int, Voter *, Flat *);				///
- void ChangeNum (int);							///
- void ChangeNumOfVoters (int);					///
- void AddNext (Flat *);							///
+ Flat ();										/// Constructor
+ Flat (int, int, Voter *, Flat *);				/// Add number, number of voters, list of voters, next
+ void ChangeNum (int);							/// Change number
+ void ChangeNumOfVoters (int);					/// Change number of voters
+ void AddNext (Flat *);							/// Add Next Flat
 }Flat;
 
 class Home										/// House
