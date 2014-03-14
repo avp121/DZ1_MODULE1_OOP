@@ -7,6 +7,7 @@ typedef class									/// Voter
  bool HomeVoting;								/// Voting status: at home/not at home
  Voter();										/// Constructor
  Voter (char *, char *, char *, int, bool);		/// Add name, age and status
+ public:
  void ChangeName (char *, char *, char *);		/// Add name
  void ChangeAge (int);							/// Add age
  void ChangeVotingStatus (bool);				/// Add status
@@ -17,12 +18,12 @@ typedef class									/// Flat
  int Number;									/// Flat number
  int NumOfVoters;								/// Number of voters in flat
  Voter *VotersList;								/// List of voters
- Flat *pNext;									/// Next flat pointer
  Flat ();										/// Constructor
- Flat (int, int, Voter *, Flat *);				/// Add number, number of voters, list of voters, next
+ Flat (int, int, Voter *);						/// Add number, number of voters, list of voters
+ public:
  void ChangeNum (int);							/// Change number
- void ChangeNumOfVoters (int);					/// Change number of voters
- void AddNext (Flat *);							/// Add Next Flat
+ void AddVoter ();
+ void DeleteVoter ();
 }Flat;
 
 class Home										/// House
@@ -32,8 +33,13 @@ class Home										/// House
  int NumOfStages;								/// Number of stages
  int NumOfFlats;								/// Number of flats
  Flat *FlatesList;								/// List of flats
- Home *pNext;									/// Next house pointer
-
+ Home ();
+ Home (int, char, int, int);					///Add number, structure, Number of stages, number of flats
+ public:
+ void ChangeNumAndStruct ();
+ void ChangeNumOfStages ();
+ void AddFlat ();
+ void DeleteFlat ();
 };
 
 class Street									/// Street
@@ -42,5 +48,19 @@ class Street									/// Street
  int Type;										/// Type of street
  int NumOfHouses;								/// Number of houses
  Home *HouseList;								/// List of houses
- Street *pNext;									/// Next street pointer
+ Street ();
+ Street (char *, int, NumOfHouses, Home *);
+ public:
+ void ChangeName ();
+ void ChangeType ();
+ void ChangeNumOfHouses ();
+ void AddHome ();
+ void DeleteHome ();
 };
+
+typedef struct
+{
+ Street Data;
+ City *pNext;
+} City;
+
