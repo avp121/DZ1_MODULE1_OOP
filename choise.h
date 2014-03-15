@@ -1,4 +1,4 @@
-typedef class									/// Voter
+class Voter 									/// Voter
 {
  char *Surname;									/// Surname
  char *Name;									/// Name
@@ -11,9 +11,9 @@ typedef class									/// Voter
  void ChangeName (char *, char *, char *);		/// Add name
  void ChangeAge (int);							/// Add age
  void ChangeVotingStatus (bool);				/// Add status
-} Voter;
+};
 
-typedef class									/// Flat
+class Flat  									/// Flat
 {
  int Number;									/// Flat number
  int NumOfVoters;								/// Number of voters in flat
@@ -24,7 +24,7 @@ typedef class									/// Flat
  void ChangeNum (int);							/// Change number
  void AddVoter ();
  void DeleteVoter ();
-}Flat;
+};
 
 class Home										/// House
 {
@@ -36,8 +36,8 @@ class Home										/// House
  Home ();
  Home (int, char, int, int);					///Add number, structure, Number of stages, number of flats
  public:
- void ChangeNumAndStruct ();
- void ChangeNumOfStages ();
+ void ChangeNumAndStruct (int, char);
+ void ChangeNumOfStages (int);
  void AddFlat ();
  void DeleteFlat ();
 };
@@ -49,11 +49,11 @@ class Street									/// Street
  int NumOfHouses;								/// Number of houses
  Home *HouseList;								/// List of houses
  Street ();
- Street (char *, int, NumOfHouses, Home *);
+ Street (char *, int, int, Home *);
  public:
- void ChangeName ();
- void ChangeType ();
- void ChangeNumOfHouses ();
+ void ChangeName (char *);
+ void ChangeType (int);
+ void ChangeNumOfHouses (int);
  void AddHome ();
  void DeleteHome ();
 };
