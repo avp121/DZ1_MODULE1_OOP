@@ -1,54 +1,63 @@
+#include "choise.h"
 //|Voter|-------------------------------------------------------------------------
 Voter::Voter ()
 {
- Name=0;
- Surname=0;
- FatherName=0;
- Age=0;
- HomeVoting=0;
+ this->Name=0;
+ this->Surname=0;
+ this->FatherName=0;
+ this->Age=0;
+ this->HomeVoting=0;
 }
 
 Voter::Voter(char *surn, char *name, char *fname, int age, bool homevot)
 {
- Surname=surn;
- Name=name;
- FatherName=fname;
- Age=age;
- HomeVoting=homevot;
+ this->Surname=surn;
+ this->Name=name;
+ this->FatherName=fname;
+ this->Age=age;
+ this->HomeVoting=homevot;
 }
 
-void Voter::ChangeAge (int NewAge)
+Voter::~Voter ()
+{
+ if (Surname) delete [] Surname;
+ if (Name) delete [] Name;
+ if (FatherName) delete [] FatherName;
+};
+void Voter::SetAge (int NewAge)
 {
  Age=NewAge;
 }
 
-void Voter::ChangeName(char *surn, char *name, char *fname)
+void Voter::SetName(char *surn, char *name, char *fname)
 {
  Surname=surn;
  Name=name;
  FatherName=fname;
 }
 
-void Voter::ChangeVotingStatus(bool VS)
+void Voter::SetVotingStatus(bool VS)
 {
  HomeVoting=VS;
 }
+
+
 //|Flat|--------------------------------------------------------------------------
 Flat::Flat ()
 {
- Number=0;
- NumOfVoters=0;
- VotersList=0;
+ this->Number=0;
+ this->NumOfVoters=0;
+ this->VotersList=0;
 }
 
 Flat::Flat(int Num, int NumOfVot, Voter *VotList)
 {
- Number=Num;
- NumOfVoters=NumOfVot;
- VotersList=*VotList;
+ this->Number=Num;
+ this->NumOfVoters=NumOfVot;
+ this->VotersList=VotList;
 }
 
-void Flat::ChangeNum (int Num)
+void Flat::SetNum (int Num)
 {
  Number=Num;
 }
@@ -65,26 +74,26 @@ void Flat::DeleteVoter()
 //|Home|--------------------------------------------------------------------------
 Home::Home ()
 {
- Number=0;
- Structure=0;
- NumOfStages=0;
- NumOfFlats=0;
+ this->Number=0;
+ this->Structure=0;
+ this->NumOfStages=0;
+ this->NumOfFlats=0;
 }
 
 Home::Home(int Num, char Struct, int NumOfStag, int NumOfFlat)
 {
- Number=Num;
- Structure=Struct;
- NumOfStages=NumOfStag;
+ this->Number=Num;
+ this->Structure=Struct;
+ this->NumOfStages=NumOfStag;
 };
 
-void Home::ChangeNumAndStruct(int Num, char Struct)
+void Home::SetNumAndStruct(int Num, char Struct)
 {
  Number=Num;
  Structure=Struct;
 }
 
-void Home::ChangeNumOfStages(int NumOfStag)
+void Home::SetNumOfStages(int NumOfStag)
 {
  NumOfStages=NumOfStag;
 }
@@ -102,31 +111,31 @@ void Home::DeleteFlat()
 
 Street::Street()
 {
- Name=0;
- Type=0;
- NumOfHouses=0;
- HouseList=0;
+ this->Name=0;
+ this->Type=0;
+ this->NumOfHouses=0;
+ this->HouseList=0;
 }
 
-Street::Street(char *N, int T, int NOH, Home * List)
+Street::Street(char *N, char *T, int NOH, Home * List)
+{
+ this->Name=N;
+ this->Type=T;
+ this->NumOfHouses=NOH;
+ this->HouseList=List;
+}
+
+void Street::SetName(char *N)
 {
  Name=N;
- Type=T;
- NumOfHouse=NOH;
- HouseList=List;
 }
 
-void Street::ChangeName(char *N)
-{
- Name=N;
-}
-
-void Street::ChangeType(int T)
+void Street::SetType(char *T)
 {
  Type=T;
 }
 
-void Street::ChangeNumOfHouses(int Num)
+void Street::SetNumOfHouses(int Num)
 {
  NumOfHouses=Num;
 }
