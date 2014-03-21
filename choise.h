@@ -9,9 +9,12 @@ class Voter 									/// Voter
  
  Voter ();										/// Constructor
  Voter (char *, char *, char *, int, bool);		/// Add name, age and status
- ~Voter ();
  
  public:
+ 
+ ~Voter ();
+ 
+ //public:
  
  void SetName (char *, char *, char *);			/// Add name
  void SetAge (int);								/// Add age
@@ -33,9 +36,12 @@ class Flat  									/// Flat
  
  Flat ();										/// Constructor
  Flat (int, int, Voter *);						/// Add number, number of voters, list of voters
- ~Flat ();
 
  public:
+
+ ~Flat ();
+
+ //public:
  
  void SetNum (int);							/// Set number
  void SetNumOfVoters (int);
@@ -58,9 +64,12 @@ class Home										/// House
  
  Home ();
  Home (int, char, int, int);					///Add number, structure, Number of stages, number of flats
+ 
+ public:
+ 
  ~Home ();
 
- public:
+ //public:
  
  void SetNumAndStruct (int, char);
  void SetNumOfStages (int);
@@ -85,9 +94,12 @@ class Street									/// Street
  
  Street ();
  Street (char *, char *, int, Home *);
+ 
+ public:
+ 
  ~Street ();
 
- public:
+ //public:
 
  void SetName (char *);
  void SetType (char *);
@@ -104,6 +116,7 @@ class Street									/// Street
 
 typedef struct City
 {
+ friend class Street;
  Street Data;
  City *pNext;
  City ();

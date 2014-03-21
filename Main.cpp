@@ -1,4 +1,4 @@
-//#pragma once
+#pragma once
 #include "choise.h"
 #include "Random.h"
 #include "fsystem.h"
