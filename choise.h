@@ -106,5 +106,7 @@ typedef struct City
 {
  Street Data;
  City *pNext;
+ City ();
+ ~City ();
 } Region;
 
