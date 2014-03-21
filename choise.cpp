@@ -1,3 +1,4 @@
+#pragma once
 #include "choise.h"
 #include "string.h"
 //|Voter|-------------------------------------------------------------------------

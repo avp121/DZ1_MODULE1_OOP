@@ -1,3 +1,4 @@
+#pragma once
 #include "fsystem.h"
 #include "choise.h"
 
