@@ -1,4 +1,5 @@
 #pragma once
+//--------------------------------------------------------------------------------
 class Voter 									/// Voter
 {
 	char *Surname;								/// Surname
@@ -6,15 +7,18 @@ class Voter 									/// Voter
 	char *FatherName;							/// Second name
 	int Age;									/// Age
 	bool HomeVoting;							/// Voting status: at home/not at home
+	bool Vote;
  
  public:
 
 	Voter ();										/// Constructor
 	Voter (char *, char *, char *, int, bool);		/// Add name, age and status
 	~Voter (); 
+
 	 void SetName (char *, char *, char *);			/// Add name
 	 void SetAge (int);								/// Add age
 	void SetVotingStatus (bool);					/// Add status
+	void SetVote (bool);
  
 	char *GetSurname ();
 	char *GetName ();
@@ -22,8 +26,9 @@ class Voter 									/// Voter
 	char *GetFullName ();
 	int  GetAge ();
 	bool GetVotingStatus ();
+	bool GetVote ();
 };
-
+//--------------------------------------------------------------------------------
 class Flat  									/// Flat
 {
 	int Number;									/// Flat number
@@ -46,7 +51,7 @@ class Flat  									/// Flat
 	void AddVoter ();
 	void DeleteVoter ();
 };
-
+//--------------------------------------------------------------------------------
 class Home										/// House
 {
 	int Number;									/// Number of house
@@ -74,7 +79,7 @@ class Home										/// House
 	void AddFlat ();
 	void DeleteFlat ();
 };
-
+//--------------------------------------------------------------------------------
 class Street									/// Street
 {
 	char *Name;									/// Name of street
@@ -100,7 +105,7 @@ class Street									/// Street
 	void AddHome ();
 	void DeleteHome ();
 };
-
+//--------------------------------------------------------------------------------
 typedef struct City
 {
 	Street Data;
@@ -108,4 +113,4 @@ typedef struct City
 	City ();
 	~City ();
 } Region;
-
+//--------------------------------------------------------------------------------

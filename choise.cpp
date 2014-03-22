@@ -1,6 +1,6 @@
 #pragma once
 #include "choise.h"
-#include "string.h"
+#include <string.h>
 //|Voter|-------------------------------------------------------------------------
 Voter::Voter ()
 {
@@ -43,6 +43,11 @@ void Voter::SetVotingStatus(bool VS)
 {
 	HomeVoting=VS;
 }
+
+void Voter::SetVote (bool V)
+{
+	Vote=V;
+}
 //--------------------------------------------------------------------------------
 char *Voter::GetName()
 {
@@ -76,6 +81,11 @@ int Voter::GetAge ()
 bool Voter::GetVotingStatus ()
 {
 	return this->HomeVoting;
+}
+
+bool Voter::GetVote ()
+{
+	return this->Vote;
 }
 //|Flat|--------------------------------------------------------------------------
 Flat::Flat ()
