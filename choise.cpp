@@ -1,6 +1,8 @@
 #pragma once
 #include "choise.h"
+#include <stdio.h>
 #include <string.h>
+//using namespace std;
 //|Voter|-------------------------------------------------------------------------
 Voter::Voter ()
 {
@@ -24,7 +26,7 @@ Voter::Voter (Voter *V)
 	this->Next=0;
 }
 
-Voter::Voter(char *surn, char *name, char *fname, int age, bool homevot)
+Voter::Voter(char *surn, char *name, char *fname, int age, bool homevot, bool vot)
 {
 	this->Surname=surn;
 	this->Name=name;
@@ -32,6 +34,7 @@ Voter::Voter(char *surn, char *name, char *fname, int age, bool homevot)
 	this->Age=age;
 	this->HomeVoting=homevot;
 	this->Next=0;
+	this->Vote=vot;
 }
 
 Voter::~Voter ()
@@ -101,6 +104,18 @@ bool Voter::GetVote ()
 {
 	return this->Vote;
 }
+
+void Voter::ShowInfo ()
+{
+	printf ("\n%s %s %s\n%d years old", Surname, Name, FatherName, Age);
+	if (Vote)
+	{
+		if (HomeVoting) printf ("\nWill vote at home");
+		else printf ("\nWill vote in the polling station");
+	}
+	else printf ("\nHas no right to vote");
+}
+
 //|Home|--------------------------------------------------------------------------
 Home::Home ()
 {
@@ -181,6 +196,11 @@ int Home::GetNumOfFlats()
 Voter *Home::GetVotersListPtr()
 {
 	return this->VoterList;
+}
+
+void Home::ShowInfo ()
+{
+	printf ("\nHome %d/%c %d stages, %d flats, %d voters", Number, Structure, NumOfStages, NumOfFlats, NumOfVoters);
 }
 //--------------------------------------------------------------------------------
 void Home::AddVoter()
@@ -265,6 +285,12 @@ int Street::GetNumOfHouses()
 Home *Street::GetHouseListPtr()
 {
 	return this->HouseList;
+}
+
+void Street::ShowInfo ()
+{
+	printf ("\n%s\nStreet type: %s\nNumber of houses: %d", Name, Type, NumOfHouses);
+	//cout<<endl<<"Street type: "<<endl<<"Number of houses: "<<Name<<
 }
 //--------------------------------------------------------------------------------
 void Street::AddHome()

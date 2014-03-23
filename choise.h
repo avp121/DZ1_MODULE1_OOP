@@ -14,7 +14,7 @@ class Voter 									/// Voter
 
 	Voter ();										/// Constructor
 	Voter (Voter*);
-	Voter (char *, char *, char *, int, bool);		/// Add name, age and status
+	Voter (char *, char *, char *, int, bool, bool);		/// Add name, age and status
 	~Voter (); 
 
 	 void SetName (char *, char *, char *);			/// Add name
@@ -29,6 +29,8 @@ class Voter 									/// Voter
 	int  GetAge ();
 	bool GetVotingStatus ();
 	bool GetVote ();
+
+	void ShowInfo ();
 
 	Voter *Next;
 };
@@ -62,6 +64,8 @@ class Home										/// House
 	int GetNumOfVoters ();
 	Voter *GetVotersListPtr ();
 
+	void ShowInfo ();
+
 	void AddVoter ();
 	void DeleteVoter ();
 
@@ -91,6 +95,8 @@ class Street									/// Street
 	char *GetType ();
 	int GetNumOfHouses ();
 	Home *GetHouseListPtr ();
+
+	void ShowInfo ();
 
 	void AddHome ();
 	void DeleteHome ();
