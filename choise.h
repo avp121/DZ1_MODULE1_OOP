@@ -8,10 +8,12 @@ class Voter 									/// Voter
 	int Age;									/// Age
 	bool HomeVoting;							/// Voting status: at home/not at home
 	bool Vote;
+	//Voter *Next;
  
  public:
 
 	Voter ();										/// Constructor
+	Voter (Voter*);
 	Voter (char *, char *, char *, int, bool);		/// Add name, age and status
 	~Voter (); 
 
@@ -27,6 +29,8 @@ class Voter 									/// Voter
 	int  GetAge ();
 	bool GetVotingStatus ();
 	bool GetVote ();
+
+	Voter *Next;
 };
 //--------------------------------------------------------------------------------
 class Home										/// House
@@ -37,10 +41,12 @@ class Home										/// House
 	int NumOfFlats;								/// Number of flats
 	int NumOfVoters;
 	Voter *VoterList;							/// List of flats
+	//Home *Next;
 
  public:
 
 	Home ();
+	Home (Home*);
 	Home (int, char, int, int, int, Voter *);					///Add number, structure, Number of stages, number of flats
 	~Home ();
  
@@ -58,6 +64,8 @@ class Home										/// House
 
 	void AddVoter ();
 	void DeleteVoter ();
+
+	Home *Next;
 };
 //--------------------------------------------------------------------------------
 class Street									/// Street
@@ -66,11 +74,12 @@ class Street									/// Street
 	char *Type;									/// Type of street
 	int NumOfHouses;							/// Number of houses
 	Home *HouseList;							/// List of houses
-	Street *Next;
+	//Street *Next;
 
  public:
 
 	Street ();
+	Street (Street*);
 	Street (char *, char *, int, Home *);
 	~Street ();
 
@@ -85,6 +94,8 @@ class Street									/// Street
 
 	void AddHome ();
 	void DeleteHome ();
+
+	Street *Next;
 };
 //--------------------------------------------------------------------------------
 
