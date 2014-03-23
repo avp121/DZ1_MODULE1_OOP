@@ -21,18 +21,12 @@ void Random::RandVoter(Voter *pVoter)
 	pVoter->SetVotingStatus (rand()%2);
 }
 
-void Random::RandFlat(Flat *pFlat)
-{
-	pFlat->SetNum (rand ()%480+1);
-	//pFlat->SetNumOfVoters (pFlat->GetNumber*(rand()%10+1));
-}
-
 void Random::RandHome(Home *pHome)
 {
 	char ArrOfStructures[10] = {'a', 'b', 'c', 'd', 'e', '1', '2', '3', '4', '5'};
 	pHome->SetNumAndStruct (rand () %100, ArrOfStructures[rand ()%10]);
 	pHome->SetNumOfStages (rand ()%40+1);
-	//pHome->SetNumOfFlats (pHome->GetNumOfStages*(rand ()%12+1));
+	pHome->SetNumOfFlats (pHome->GetNumOfStages()*(rand ()%12+1));
 }
 
 void Random::RandStreet(Street *pStreet)

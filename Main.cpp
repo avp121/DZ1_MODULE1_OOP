@@ -7,7 +7,7 @@
 int main ()
 {
 	int com=1; 
-	Region MyCity;
+	Street *pRoot=0;
 	srand ((unsigned)time (NULL));
 	while (com!=IDM_EXIT)
 	 {

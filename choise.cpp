@@ -87,60 +87,6 @@ bool Voter::GetVote ()
 {
 	return this->Vote;
 }
-//|Flat|--------------------------------------------------------------------------
-Flat::Flat ()
-{
-	this->Number=0;
-	this->NumOfVoters=0;
-	this->VotersList=0;
-}
-
-Flat::Flat(int Num, int NumOfVot, Voter *VotList)
-{
-	this->Number=Num;
-	this->NumOfVoters=NumOfVot;
-	this->VotersList=VotList;
-} 
-
-Flat::~Flat()
-{
-	if (VotersList) delete [] VotersList;
-}
-//--------------------------------------------------------------------------------
-void Flat::SetNum (int Num)
-{
-	Number=Num;
-}
-
-void Flat::SetNumOfVoters(int Num)
-{
-	NumOfVoters=Num;
-}
-//--------------------------------------------------------------------------------
-int Flat::GetNumber()
-{
-	return this->Number;
-}
-
-int Flat::GetNumOfVoters ()
-{
-	return this->NumOfVoters;
-}
-
-Voter *Flat::GetVotersListPtr()
-{
-	return this->VotersList;
-}
-//--------------------------------------------------------------------------------
-void Flat::AddVoter()
-{
- //soon
-}
-
-void Flat::DeleteVoter()
-{
- //soon
-}
 //|Home|--------------------------------------------------------------------------
 Home::Home ()
 {
@@ -148,9 +94,10 @@ Home::Home ()
 	this->Structure=0;
 	this->NumOfStages=0;
 	this->NumOfFlats=0;
+	this->NumOfVoters=0;
 }
 
-Home::Home(int Num, char Struct, int NumOfStag, int NumOfFlat)
+Home::Home(int Num, char Struct, int NumOfStag, int NumOfFlat, int NumOfVot, Voter *VotList)
 {
 	this->Number=Num;
 	this->Structure=Struct;
@@ -159,7 +106,7 @@ Home::Home(int Num, char Struct, int NumOfStag, int NumOfFlat)
 
 Home::~Home ()
 {
-	if (FlatesList) delete [] FlatesList;
+	if (VoterList) delete [] VoterList;
 }
 //--------------------------------------------------------------------------------
 void Home::SetNumAndStruct(int Num, char Struct)
@@ -198,17 +145,17 @@ int Home::GetNumOfFlats()
 	return this->NumOfFlats;
 }
 
-Flat *Home::GetFlatesListPtr()
+Voter *Home::GetVotersListPtr()
 {
-	return this->FlatesList;
+	return this->VoterList;
 }
 //--------------------------------------------------------------------------------
-void Home::AddFlat()
+void Home::AddVoter()
 {
  //soon
 }
 
-void Home::DeleteFlat()
+void Home::DeleteVoter()
 {
  //soon
 }
@@ -280,14 +227,4 @@ void Street::AddHome()
 void Street::DeleteHome()
 {
  //soon
-}
-//|City|----------------------------------------------------------------------------
-City::City()
-{
-	this->pNext=0;
-}
-
-City::~City()
-{
-	if (pNext) delete pNext;
 }

@@ -29,55 +29,35 @@ class Voter 									/// Voter
 	bool GetVote ();
 };
 //--------------------------------------------------------------------------------
-class Flat  									/// Flat
-{
-	int Number;									/// Flat number
-	int NumOfVoters;							/// Number of voters in flat
-	Voter *VotersList;							/// List of voters
- 
- public:
-
-	Flat ();									/// Constructor
-	Flat (int, int, Voter *);					/// Add number, number of voters, list of voters
-	~Flat ();
- 
-	void SetNum (int);							/// Set number
-	void SetNumOfVoters (int);
-
-	int GetNumber ();
-	int GetNumOfVoters ();
-	Voter *GetVotersListPtr ();
-
-	void AddVoter ();
-	void DeleteVoter ();
-};
-//--------------------------------------------------------------------------------
 class Home										/// House
 {
 	int Number;									/// Number of house
 	char Structure;								/// Structure of house
-	int NumOfStages;								/// Number of stages
+	int NumOfStages;							/// Number of stages
 	int NumOfFlats;								/// Number of flats
-	Flat *FlatesList;							/// List of flats
+	int NumOfVoters;
+	Voter *VoterList;							/// List of flats
 
  public:
 
 	Home ();
-	Home (int, char, int, int);					///Add number, structure, Number of stages, number of flats
+	Home (int, char, int, int, int, Voter *);					///Add number, structure, Number of stages, number of flats
 	~Home ();
  
 	void SetNumAndStruct (int, char);
 	void SetNumOfStages (int);
 	void SetNumOfFlats (int);
+	void SetNumOfVoters (int);
  
 	int GetNumber ();
 	char GetStruct ();
 	int GetNumOfStages ();
 	int GetNumOfFlats ();
-	Flat *GetFlatesListPtr ();
+	int GetNumOfVoters ();
+	Voter *GetVotersListPtr ();
 
-	void AddFlat ();
-	void DeleteFlat ();
+	void AddVoter ();
+	void DeleteVoter ();
 };
 //--------------------------------------------------------------------------------
 class Street									/// Street
@@ -86,6 +66,7 @@ class Street									/// Street
 	char *Type;									/// Type of street
 	int NumOfHouses;							/// Number of houses
 	Home *HouseList;							/// List of houses
+	Street *Next;
 
  public:
 
@@ -106,11 +87,4 @@ class Street									/// Street
 	void DeleteHome ();
 };
 //--------------------------------------------------------------------------------
-typedef struct City
-{
-	Street Data;
-	City *pNext;
-	City ();
-	~City ();
-} Region;
-//--------------------------------------------------------------------------------
+
